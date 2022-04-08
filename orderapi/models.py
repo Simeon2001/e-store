@@ -22,6 +22,7 @@ class Product (models.Model):
     price = models.DecimalField(decimal_places=0, max_digits=5)
     
     available = models.BooleanField(default=True)
+    description = models.TextField(max_length=20000,blank=True,default="product is good")
     
     
     created_at = models.DateTimeField(auto_now_add=True)

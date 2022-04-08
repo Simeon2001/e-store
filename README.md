@@ -3,7 +3,7 @@
 
  ## TUTORIALS
 
-* TO CREATE AN ACCOUNT USE http://127.0.0.1:8000/api/register then with a post request containing the json data:
+* TO CREATE AN ACCOUNT USE https://store-wa.herokuapp.com/api/register then with a post request containing the json data:
 --------------------
 
     {"username":"hartech","password":"Linktree2021","email":"hartech@gmail.com"}
@@ -11,7 +11,7 @@
 
 after registering it automatically create an authtoken.
 
-* TO LOGIN TO ACCOUNT USE http://127.0.0.1:8000/api/token then with a post request containing the json data:
+* TO LOGIN TO ACCOUNT USE https://store-wa.herokuapp.com/api/token then with a post request containing the json data:
 --------------------
 
     {"username":"jesse","password":"Apple29999"}
@@ -24,13 +24,13 @@ after registering it automatically create an authtoken.
     {"status":true,"token":"121fe8dbc25140d8fa896a6367221acf55616891"}
 -------------------------------------
 
-* TO GET ALL PRODUCT IN STORE USE http://127.0.0.1:8000/api/product then with a get request and result is json data:
+* TO GET ALL PRODUCT IN STORE USE https://store-wa.herokuapp.com/api/product then with a get request and result is json data:
 --------------------
 
     [{"id":1,"category":"shoe","name":"nike air","price":"5000","available":true,"image":"https://img.net"},{"id":2,"category":"pant","name":"blue jean","price":"7000","available":true,"image":"https://img.net"}]
 -------------------------------------
 
-* TO GET product in cart for EACH USER USE http://127.0.0.1:8000/api/cart then with a GET request and user TOKEN with a result of this:
+* TO GET product in cart for EACH USER USE https://store-wa.herokuapp.com/api/cart then with a GET request and user TOKEN with a result of this:
 which contain 
 
 --------------------
@@ -56,7 +56,7 @@ which contain
 
 
 
-* TO add a product to cart or increase it quantity for a certain user USE http://127.0.0.1:8000/api/update then with a POST request, then with the product id e.g 1,2,3 and "Y" to increase the quantity and "N" to reduce:
+* TO add a product to cart or increase it quantity for a certain user USE https://store-wa.herokuapp.com/api/update then with a POST request, then with the product id e.g 1,2,3 and "Y" to increase the quantity and "N" to reduce:
 --------------------
     {"listen": "1Y"}
 -------------------------------------

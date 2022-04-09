@@ -78,4 +78,4 @@ def Checkout(request):
     cartItems = placed.get_cart_items
     cartTotal = placed.get_cart_total
 
-    return Response({"total-items":cartItems,"total-price":cartTotal,"item":item})
+    return Response({"total-items":cartItems,"total-price":cartTotal})

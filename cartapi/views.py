@@ -26,9 +26,8 @@ def all_order (request):
 def update (request):
     customer = request.user
     if request.method == "POST":
-        listen = request.data.get('listen')
-        no = listen[0]
-        action = listen[-1]
+        no = request.data.get('id')
+        action = request.data.get('bool')
         mea = Product.objects.get(id=no)
         placed, created = Order.objects.get_or_create(customer=customer, complete=False)
         orderItem, created = OrderItem.objects.get_or_create(order=placed, mea=mea)

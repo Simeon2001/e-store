@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-a5%qbn3f*#c8uc_=n-oplzgd4thi2g1gi7ek#+lbglrf86z1n+
 # SECURITY WARNING: don't run with debug turned on in Categoryion!
 DEBUG = True
 
-ALLOWED_HOSTS = ["store-wa.herokuapp.com"]
+ALLOWED_HOSTS = ["store-wa.herokuapp.com","127.0.0.1"]
 
 
 # Application definition

@@ -58,7 +58,7 @@ which contain
 
 * TO add a product to cart or increase it quantity for a certain user USE https://store-wa.herokuapp.com/api/update then with a POST request, then with the product id e.g 1,2,3 and "Y" to increase the quantity and "N" to reduce:
 --------------------
-    {"listen": "1Y"}
+    {"id":"2","bool":"N"}
 -------------------------------------
 
 this will add product with id 1 to the cart and increase it quantity from 0 to 1.

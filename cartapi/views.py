@@ -16,9 +16,6 @@ def all_order (request):
     permission_classes = (IsAuthenticated,)
     placed, created = Order.objects.get_or_create(customer=customer, complete=False)
     item = placed.orderitem_set.all()
-    orderItems = placed.get_order_items
-    orderTotal = placed.get_order_total
-    context = {'orderItems':orderItems}
     serializer_class = order_serial(item,many=True)
 #    serializer_class.is_valid()
     return Response(serializer_class.data)
@@ -45,8 +42,18 @@ def update (request):
                     "message": "add"
                 }
             )
-        elif action == 'N':
+
+        
+        if action == 'N':
             orderItem.quantity = (orderItem.quantity - 1)
+            if orderItem.quantity <= 0:
+                orderItem.delete()
+                return Response (
+                    {
+                        
+                        "message": "removed"
+                    }
+                )
             orderItem.save()
 
             return Response (
@@ -56,12 +63,19 @@ def update (request):
                 }
             )
 
-        if orderItem.quantity <= 0:
-            orderItem.delete()
-            return Response (
-                {
-                    
-                    "message": "None"
-                }
-            )
         
+
+# checkout function
+@api_view()
+@permission_classes([IsAuthenticated])
+@authentication_classes([TokenAuthentication])
+def Checkout(request):
+    customer = request.user
+    placed, created = Order.objects.get_or_create(customer=customer, complete=False)
+    item = placed.orderitem_set.all()
+    print (item)
+
+    cartItems = placed.get_cart_items
+    cartTotal = placed.get_cart_total
+
+    return Response({"total-items":cartItems,"total-price":cartTotal,"item":item})
